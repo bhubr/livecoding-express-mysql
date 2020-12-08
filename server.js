@@ -3,6 +3,16 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+const connection = require('./connection');
+
+connection.query('SELECT * from student', (err, results) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(results);
+  }
+});
+
 const app = express();
 
 const port = process.env.PORT || 5000;
