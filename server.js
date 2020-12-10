@@ -5,15 +5,20 @@ dotenv.config();
 
 const connection = require('./connection');
 
-connection.query('SELECT * from student', (err, results) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(results);
-  }
-});
-
 const app = express();
+
+app.get('/students', (req, res) => {
+  connection.query('SELECT * from student', (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send({
+        error: err.message
+      });
+    } else {
+      res.json(results);
+    }
+  });
+});
 
 const port = process.env.PORT || 5000;
 

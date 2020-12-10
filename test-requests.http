@@ -1,0 +1,14 @@
+### Get all students
+GET http://localhost:4000/students
+
+### Create a student
+POST http://localhost:4000/students
+Content-Type: application/json
+
+{
+  "firstname": "Foo",
+  "lastname": "Bar",
+  "birthday": "1990-02-14",
+  "address": "somewhere",
+  "num_courses": 4
+}
