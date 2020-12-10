@@ -6,9 +6,9 @@ POST http://localhost:4000/students
 Content-Type: application/json
 
 {
-  "firstname": "Foo",
-  "lastname": "Bar",
+  "firstname": "Donald",
+  "lastname": "Trump",
   "birthday": "1990-02-14",
-  "address": "somewhere",
+  "address": "USA",
   "num_courses": 4
 }
