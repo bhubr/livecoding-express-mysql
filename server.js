@@ -50,6 +50,36 @@ app.post('/students', (req, res) => {
   );
 });
 
+app.put('/students/:id', (req, res) => {
+  const studentId = Number(req.params.id);
+  const {
+    firstname, lastname, birthday, address, num_courses
+  } = req.body;
+  const sql = `UPDATE student SET
+    firstname = ?,
+    lastname = ?,
+    birthday = ?,
+    address = ?,
+    num_courses = ?
+    WHERE id = ?
+  `;
+  connection.query(
+    sql,
+    [firstname, lastname, birthday, address, num_courses, studentId],
+    (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send({
+          error: err.message
+        });
+      } else {
+        const updatedStudent = { id: studentId, ...req.body };
+        res.json(updatedStudent);
+      }
+    }
+  );
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {
