@@ -25,6 +25,25 @@ app.get('/students', (req, res) => {
   });
 });
 
+app.get('/students/:id', (req, res) => {
+  const studentId = Number(req.params.id);
+  const sql = 'SELECT * from student WHERE id = ?';
+  connection.query(sql, [studentId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send({
+        error: err.message
+      });
+    } else if (results.length === 0) {
+      res.status(404).send({
+        error: 'Student not found'
+      });
+    } else {
+      res.json(results[0]);
+    }
+  });
+});
+
 app.post('/students', (req, res) => {
   const {
     firstname, lastname, birthday, address, num_courses

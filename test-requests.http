@@ -1,6 +1,9 @@
 ### Get all students
 GET http://localhost:4000/students
 
+### Get one student
+GET http://localhost:4000/students/3000
+
 ### Create a student
 POST http://localhost:4000/students
 Content-Type: application/json
