@@ -80,6 +80,25 @@ app.put('/students/:id', (req, res) => {
   );
 });
 
+app.delete('/students/:id', (req, res) => {
+  const studentId = Number(req.params.id);
+  const sql = 'DELETE FROM student WHERE id = ?';
+  connection.query(
+    sql,
+    [studentId],
+    (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send({
+          error: err.message
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    }
+  );
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {
