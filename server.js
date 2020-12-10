@@ -26,11 +26,9 @@ app.get('/students', (req, res) => {
 });
 
 app.post('/students', (req, res) => {
-  const firstname = req.body.firstname
-  const lastname = req.body.lastname
-  const birthday = req.body.birthday
-  const address = req.body.address
-  const num_courses = req.body.num_courses
+  const {
+    firstname, lastname, birthday, address, num_courses
+  } = req.body;
   const sql = `INSERT INTO
     student(firstname, lastname, birthday, address, num_courses)
     VALUES(?, ?, ?, ?, ?)`
