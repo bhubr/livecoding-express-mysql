@@ -7,8 +7,8 @@ Content-Type: application/json
 
 {
   "firstname": "Donald",
-  "lastname": "Trump",
-  "birthday": "1990-02-14",
-  "address": "USA",
-  "num_courses": 4
+  "lastname": "D'Artagnan",
+  "birthday": "1912-02-14",
+  "address": "France",
+  "num_courses": 6
 }

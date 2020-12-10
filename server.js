@@ -33,19 +33,23 @@ app.post('/students', (req, res) => {
   const num_courses = req.body.num_courses
   const sql = `INSERT INTO
     student(firstname, lastname, birthday, address, num_courses)
-    VALUES('${firstname}', '${lastname}', '${birthday}', '${address}', ${num_courses})`
-  connection.query(sql, (err, status) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send({
-        error: err.message
-      });
-    } else {
-      const id = status.insertId;
-      const newStudent = { id, ...req.body };
-      res.json(newStudent);
+    VALUES(?, ?, ?, ?, ?)`
+  connection.query(
+    sql,
+    [firstname, lastname, birthday, address, num_courses],
+    (err, status) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send({
+          error: err.message
+        });
+      } else {
+        const id = status.insertId;
+        const newStudent = { id, ...req.body };
+        res.json(newStudent);
+      }
     }
-  });
+  );
 });
 
 const port = process.env.PORT || 5000;
