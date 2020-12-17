@@ -16,6 +16,32 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * @api {get} /api/students/:id Request Student information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Student's unique ID.
+ *
+ * @apiSuccess {Object} Student data.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "id": 4,
+ *       "firstname": "Arnold",
+ *       "lastname": "Schwarzy",
+ *       "birthday": "1970-07-06T23:00:00.000Z",
+ *       "address": "USA",
+ *       "num_courses": 0
+ *     }
+ *
+ * @apiError {Object} Error description
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "Student not found"
+ *     }
+ */
 router.get('/:id', (req, res) => {
   const studentId = Number(req.params.id);
   const sql = 'SELECT * from student WHERE id = ?';
