@@ -2,7 +2,7 @@
 GET http://localhost:4000/api/students
 
 ### Get one student
-GET http://localhost:4000/api/students/10
+GET http://localhost:4000/api/students/4
 
 ### Create a student
 POST http://localhost:4000/api/students
@@ -32,10 +32,10 @@ Content-Type: application/json
 DELETE http://localhost:4000/api/students/10
 
 ### GET test route
-GET http://localhost:4000/test
+GET http://localhost:4000/api/test
 
 ### POST to test route
-POST http://localhost:4000/test
+POST http://localhost:4000/api/test
 Content-Type: application/json
 
 {

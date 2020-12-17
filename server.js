@@ -1,7 +1,6 @@
 const express = require('express');
 require('dotenv').config();
-const studentsRouter = require('./routes/students');
-const testRouter = require('./routes/test');
+const apiRouter = require('./routes');
 
 const app = express();
 
@@ -13,8 +12,7 @@ app.use(express.json());
 
 // "Plug" students router AFTER enabling express.json()
 // otherwise it won't be able to handle incoming JSON data
-app.use('/api/students', studentsRouter);
-app.use('/test', testRouter);
+app.use('/api', apiRouter);
 
 const port = process.env.PORT || 5000;
 
