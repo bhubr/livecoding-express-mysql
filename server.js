@@ -1,5 +1,5 @@
 const express = require('express');
-require('dotenv').config();
+const { port } = require('./config');
 const apiRouter = require('./routes');
 
 const app = express();
@@ -13,8 +13,6 @@ app.use(express.json());
 // "Plug" students router AFTER enabling express.json()
 // otherwise it won't be able to handle incoming JSON data
 app.use('/api', apiRouter);
-
-const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {
   if (err) {
