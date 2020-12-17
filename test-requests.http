@@ -1,15 +1,15 @@
 ### Get all students
-GET http://localhost:4000/students
+GET http://localhost:4000/api/students
 
 ### Get one student
-GET http://localhost:4000/students/3000
+GET http://localhost:4000/api/students/10
 
 ### Create a student
-POST http://localhost:4000/students
+POST http://localhost:4000/api/students
 Content-Type: application/json
 
 {
-  "firstname": "Arnold",
+  "firstname": "Pierre",
   "lastname": "D'Artagnan",
   "birthday": "1912-02-14",
   "address": "France",
@@ -17,11 +17,11 @@ Content-Type: application/json
 }
 
 ### Update a student
-PUT http://localhost:4000/students/5
+PUT http://localhost:4000/api/students/10
 Content-Type: application/json
 
 {
-  "firstname": "Jack",
+  "firstname": "Pierre",
   "lastname": "Hopkins",
   "birthday": "1971-07-07",
   "address": "USA",
@@ -29,4 +29,15 @@ Content-Type: application/json
 }
 
 ### Delete a student
-DELETE http://localhost:4000/students/5
+DELETE http://localhost:4000/api/students/10
+
+### GET test route
+GET http://localhost:4000/test
+
+### POST to test route
+POST http://localhost:4000/test
+Content-Type: application/json
+
+{
+  "test": true
+}
